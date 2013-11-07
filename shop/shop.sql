@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- 主機: localhost
--- 建立日期: Nov 04, 2013, 07:26 AM
+-- 建立日期: Nov 07, 2013, 03:31 AM
 -- 伺服器版本: 5.0.51
 -- PHP 版本: 5.2.6
 
@@ -12,6 +12,8 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- 
 -- 資料庫: `shop`
 -- 
+CREATE DATABASE `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `shop`;
 
 -- --------------------------------------------------------
 
@@ -73,6 +75,27 @@ INSERT INTO `color` VALUES (36, 6, 'S06C06', 'S_06_C06', 279, '06樣式06顏色'
 -- --------------------------------------------------------
 
 -- 
+-- 資料表格式： `shoplist`
+-- 
+
+CREATE TABLE `shoplist` (
+  `id` int(20) NOT NULL auto_increment,
+  `ip` varchar(15) NOT NULL,
+  `stylecolor` varchar(20) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+-- 
+-- 列出以下資料庫的數據： `shoplist`
+-- 
+
+INSERT INTO `shoplist` VALUES (13, '127.0.0.1', '$S01C01', '2013-11-07 02:41:46');
+INSERT INTO `shoplist` VALUES (14, '127.0.0.1', '$S02C02', '2013-11-07 02:41:46');
+
+-- --------------------------------------------------------
+
+-- 
 -- 資料表格式： `style_list`
 -- 
 
@@ -105,17 +128,12 @@ CREATE TABLE `tmpshoplist` (
   `ip` varchar(15) NOT NULL,
   `stylecolor` varchar(20) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 -- 
 -- 列出以下資料庫的數據： `tmpshoplist`
 -- 
 
-INSERT INTO `tmpshoplist` VALUES (1, '127.0.0.1', 'S03C03');
-INSERT INTO `tmpshoplist` VALUES (2, '127.0.0.1', 'S02C02');
-INSERT INTO `tmpshoplist` VALUES (3, '127.0.0.1', 'S01C01');
-INSERT INTO `tmpshoplist` VALUES (4, '127.0.0.1', 'S02C02');
-INSERT INTO `tmpshoplist` VALUES (5, '218.173.236.219', 'S04C04');
-INSERT INTO `tmpshoplist` VALUES (6, '218.173.236.219', 'S05C01');
-INSERT INTO `tmpshoplist` VALUES (7, '218.173.236.219', 'S01C04');
-INSERT INTO `tmpshoplist` VALUES (8, '127.0.0.1', 'S02C05');
+INSERT INTO `tmpshoplist` VALUES (1, '218.173.236.219', 'S04C04');
+INSERT INTO `tmpshoplist` VALUES (2, '218.173.236.219', 'S05C01');
+INSERT INTO `tmpshoplist` VALUES (3, '218.173.236.219', 'S01C04');
