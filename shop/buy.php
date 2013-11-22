@@ -10,12 +10,12 @@ echo "<html>";
 		
 	$count=0;
 	$sqlflag=0;
-	$sql = "SELECT `color`.`location`,`tmpshoplist`.`stylecolor`,`tmpshoplist`.`id` FROM `tmpshoplist`,`color` WHERE `tmpshoplist`.`stylecolor`=`color`.`name` AND `ip`='$u_ip'" ;
+	$sql = "SELECT `color`.`location`,`tmpshoplist`.`stylecolor`,`tmpshoplist`.`id`,`tmpshoplist`.`start_time`,`tmpshoplist`.`end_time` FROM `tmpshoplist`,`color` WHERE `tmpshoplist`.`stylecolor`=`color`.`name` AND `ip`='$u_ip'" ;
 	$result = mysql_query($sql);
 	while ($row = mysql_fetch_row($result))
 	{
 		echo "$row[1]____購買完成";
-		$sqladdshop = "INSERT INTO  `shop`.`shoplist` (`id` ,`ip` ,`stylecolor` , `date` )VALUES (NULL ,'$u_ip' ,'$$row[1]' ,'$mysqldate');" ;
+		$sqladdshop = "INSERT INTO  `shop`.`shoplist` (`id` ,`ip` ,`stylecolor` , `date`, `start_time`, `end_time` )VALUES (NULL ,'$u_ip' ,'$$row[1]' ,'$mysqldate','$row[3]','$row[4]');" ;
 		$resultaddshop = mysql_query($sqladdshop);
 		
 		$sqldeltmp = "DELETE FROM `tmpshoplist` WHERE `tmpshoplist`.`id` = '$row[2]'" ;
